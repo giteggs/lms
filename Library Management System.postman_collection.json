@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "75ac9596-9f86-4d04-b247-b13a562bca35",
+		"name": "Library Management System",
+		"description": "Postman collection for the Library Management System API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6739166"
+	},
+	"item": [
+		{
+			"name": "Register a New Borrower",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"john.doe@example.com\",\n  \"name\": \"John Doe\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/borrowers",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"borrowers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register a New Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"isbn\": \"1234567890\",\n  \"title\": \"Sample Book\",\n  \"author\": \"Sample Author\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/books",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/books",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrow a Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"borrowerId\": {{borrower_id}},\n  \"bookId\": {{book_id}}\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/borrowers/{{borrower_id}}/borrow/{{book_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"borrowers",
+						"{{borrower_id}}",
+						"borrow",
+						"{{book_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return a Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/borrowers/{{borrower_id}}/return/{{book_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"borrowers",
+						"{{borrower_id}}",
+						"return",
+						"{{book_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Borrower Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/borrowers/{{borrower_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"borrowers",
+						"{{borrower_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Book Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/books/{{book_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"{{book_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "borrower_id",
+			"value": "1"
+		},
+		{
+			"key": "book_id",
+			"value": "1"
+		}
+	]
+}
